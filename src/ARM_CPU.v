@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module ARM_CPU
+module tt_um_ARM_CPU
 (
   input RESET,
   input CLOCK,
