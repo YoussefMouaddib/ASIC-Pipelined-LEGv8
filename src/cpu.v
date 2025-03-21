@@ -35,11 +35,17 @@ module ARM_CPU (
 
     // Register File
     reg [31:0] reg_file [0:31]; // 32 x 32-bit registers
+    integer initCount;
     wire [4:0] rs1 = instruction[19:15];
     wire [4:0] rs2 = instruction[24:20];
     wire [4:0] rd  = instruction[11:7];
     wire [31:0] reg_data1 = reg_file[rs1];
     wire [31:0] reg_data2 = reg_file[rs2];
+    initial begin
+    for (initCount = 0; initCount < 31; initCount = initCount + 1) begin
+      reg_file[initCount] = initCount;
+    end
+
 
     // Control Unit (Decodes opcode)
     wire [6:0] opcode = instruction[6:0];
